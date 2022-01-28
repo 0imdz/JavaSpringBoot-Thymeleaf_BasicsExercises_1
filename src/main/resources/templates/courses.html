@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Insert title here</title>
+</head>
+<body>
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Horas</th>
+            <th>Precio</th>
+            <th>Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+<!--        <form action="#" th:action="@{/courses/eliminar}+${course.id}" method="get">-->
+            <tr th:each="course : ${courses}">
+                <th><span th:text ="${course.nombre}" >Nombre</span></th>
+                <th><span th:text ="${course.descripcion}" >Descripción</span></th>
+                <th><span th:text ="${course.horas}" >Horas</span></th>
+                <th><span th:text ="${course.precio}" >Precio</span></th>
+                <th>
+                    <a th:href="@{/courses/eliminar/}+${course.id}">Eliminar</a>
+<!--                    <input type="checkbox" th:value="${iterator.index}" th:name="iterador"/>-->
+                </th>
+                <th>
+                    <a th:href="@{/courses/editar/}+${course.id}">Editar</a>
+                </th>
+            </tr>
+<!--            <p><input type="submit" value="SUBMIT"/> </p>-->
+<!--        </form>-->
+    </tbody>
+</table>
+
+<!-- FORMULARIO-->
+<form action="#" th:action="@{/courses/addcourse}" th:object="${course}" method="post">
+    <p>Nombre: <input type="text" th:field="${course.nombre}"/> </p>
+    <p>Descripción: <input type="text" th:field="${course.descripcion}"/> </p>
+    <p>Precio: <input type="number" th:field="${course.precio}"/> </p>
+    <p>Horas: <input type="number" th:field="${course.horas}"/> </p>
+
+    <p><input type="submit" value="SUBMIT"/> </p>
+</form>
+
+</body>
+</html>

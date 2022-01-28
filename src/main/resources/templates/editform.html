@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- FORMULARIO -->
+    <h1>Hola</h1>
+    <form action="#" th:action="@{/courses/modificacionrealizada}" th:object="${course}" method="post">
+
+        <input type="hidden" th:field="${course.id}" value="${course.id}" readonly="readonly">
+
+        <input type="text" th:field="${course.nombre}" value="${course.nombre}"/>
+        <input type="text" th:field="${course.descripcion}" value="${course.descripcion}"/>
+        <input type="number" th:field="${course.precio}" value="${course.precio}"/>
+        <input type="number" th:field="${course.horas}" value="${course.horas}"/>
+
+        <input type="submit" value="SUBMIT"/>
+    </form>
+</body>
+</html>
